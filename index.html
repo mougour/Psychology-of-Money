@@ -205,7 +205,7 @@
                         <i class="fa-solid fa-check"></i>
                     </div>
                     <p class="text-xs sm:text-sm text-gray-200">
-                        <strong class="text-white font-bold">Step-by-Step Framework:</strong> Better money decisions
+                        <strong class="text-white font-bold">Step-by-Step Framework:</strong> Proven habit systems
                     </p>
                 </div>
                 <!-- Bullet 3 -->
@@ -233,7 +233,7 @@
             <div class="flex flex-col items-end">
                 <span class="text-[10px] sm:text-xs font-bold tracking-wider text-gray-400 uppercase mb-0.5">RETAIL PRICE</span>
                 <div class="flex items-center gap-2">
-                    <span class="line-through text-gray-500 font-medium text-xs sm:text-sm">$24.99</span>
+                    <span class="line-through text-gray-500 font-medium text-xs sm:text-sm">$27.00</span>
                     <span class="text-brand-green font-extrabold text-sm sm:text-base">FREE</span>
                 </div>
             </div>
@@ -243,14 +243,42 @@
         <div class="w-full bg-brand-card rounded-xl border border-brand-border/70 p-3.5 sm:p-4 mb-6">
             <div class="flex justify-between items-center text-[11px] sm:text-xs font-bold tracking-wide mb-2.5">
                 <span class="text-amber-400 uppercase">
-                    FREE DOWNLOADS LEFT: <span id="copies-count" class="text-white font-black">27</span> COPIES
+                    FREE DOWNLOADS LEFT: <span id="copies-count" class="text-white font-black">18</span> COPIES
                 </span>
-                <span class="text-gray-400">90% CLAIMED</span>
+                <span class="text-gray-400">82% CLAIMED</span>
             </div>
             
             <!-- Progress Track -->
             <div class="w-full h-3 bg-gray-800/90 rounded-full overflow-hidden p-0.5 border border-gray-700/50">
-                <div id="progress-fill" class="h-full rounded-full shimmer-bar transition-all duration-1000" style="width: 90%;"></div>
+                <div id="progress-fill" class="h-full rounded-full shimmer-bar transition-all duration-1000" style="width: 82%;"></div>
+            </div>
+        </div>
+
+        <!-- 3-STEP INSTRUCTION SECTION -->
+        <div class="w-full my-6 px-2 space-y-4 text-left">
+            <div class="flex items-center gap-3.5">
+                <div class="w-7 h-7 rounded-full bg-amber-600/30 border border-amber-500/60 text-amber-500 font-bold text-xs flex items-center justify-center shrink-0 shadow-sm">
+                    1
+                </div>
+                <p class="text-xs sm:text-sm text-gray-200">
+                    Click the button below to start instant verification.
+                </p>
+            </div>
+            <div class="flex items-center gap-3.5">
+                <div class="w-7 h-7 rounded-full bg-amber-600/30 border border-amber-500/60 text-amber-500 font-bold text-xs flex items-center justify-center shrink-0 shadow-sm">
+                    2
+                </div>
+                <p class="text-xs sm:text-sm text-gray-200">
+                    Complete <strong class="text-white font-bold">ONE</strong> quick & simple offer to unlock the file link.
+                </p>
+            </div>
+            <div class="flex items-center gap-3.5">
+                <div class="w-7 h-7 rounded-full bg-amber-600/30 border border-amber-500/60 text-amber-500 font-bold text-xs flex items-center justify-center shrink-0 shadow-sm">
+                    3
+                </div>
+                <p class="text-xs sm:text-sm text-gray-200">
+                    Your <strong class="text-white font-bold">Psychology of Money PDF download</strong> will start automatically!
+                </p>
             </div>
         </div>
 
@@ -258,14 +286,13 @@
         <div class="w-full flex flex-col items-center">
             <button onclick="startDownloadSequence()" class="w-full btn-gradient text-slate-950 font-black text-base sm:text-lg py-4 px-6 rounded-xl flex items-center justify-center gap-3 shadow-glow-btn uppercase tracking-wide cursor-pointer">
                 <i class="fa-solid fa-download text-lg sm:text-xl"></i>
-                <span>GET YOUR FREE PDF NOW</span>
+                <span>COMPLETE 1 OFFER TO DOWNLOAD</span>
             </button>
 
-            <!-- SUBTEXT SECURITY BADGE -->
-            <div class="flex items-center gap-1.5 text-gray-400 text-xs mt-3.5">
-                <i class="fa-solid fa-shield-halved text-gray-400"></i>
-                <span>Secure & Instant Access</span>
-            </div>
+            <!-- SUBTEXT DISCLAIMER -->
+            <p class="text-[10px] sm:text-xs text-gray-500 text-center mt-3.5 max-w-md">
+                *Verification is required to prevent automated bots & ensure free access for everyone.
+            </p>
         </div>
 
         <!-- REVIEWS / TRUST FOOTER SUB-SECTION -->
@@ -359,7 +386,7 @@
 
     <script>
         // Interactive Live Counter for Scarcity simulation
-        let currentCopies = 27;
+        let currentCopies = 18;
         const copiesEl = document.getElementById('copies-count');
         
         // Randomly decrease stock slightly over time to simulate active claims
