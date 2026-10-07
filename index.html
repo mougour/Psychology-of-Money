@@ -96,20 +96,69 @@
             background: linear-gradient(90deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 80%);
         }
 
-        .recent-download {
-            background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.025));
-            border: 1px solid rgba(255,255,255,0.08);
-            box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideOutUp {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+        }
+
+        .notification-enter {
+            animation: slideInDown 0.4s ease-out;
+        }
+
+        .notification-exit {
+            animation: slideOutUp 0.4s ease-in;
+        }
+
+        .floating-notification {
+            background: linear-gradient(180deg, rgba(17, 213, 145, 0.15), rgba(17, 213, 145, 0.05));
+            border: 1px solid rgba(17, 213, 145, 0.3);
+            box-shadow: 0 10px 30px rgba(17, 213, 145, 0.2);
             backdrop-filter: blur(10px);
         }
 
-        .recent-download .icon-badge {
-            background: linear-gradient(180deg, #20d989, #12bf7a);
-            box-shadow: 0 0 20px rgba(32, 217, 137, 0.3);
+        .notification-icon {
+            background: linear-gradient(180deg, #11d591, #00c57c);
+            box-shadow: 0 0 20px rgba(17, 213, 137, 0.35);
         }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between items-center px-4 py-6 md:py-10">
+
+    <!-- Floating Notification -->
+    <div id="notification" class="fixed top-4 left-1/2 transform -translate-x-1/2 z-40 hidden">
+        <div class="floating-notification rounded-2xl p-3 sm:p-4 mx-auto">
+            <div class="flex items-center gap-3 sm:gap-4">
+                <div class="notification-icon flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full text-lg text-slate-950 shadow-lg flex-shrink-0">
+                    <i class="fa-solid fa-book"></i>
+                </div>
+                <div class="min-w-0">
+                    <div class="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.18em] text-gray-300/80 mb-1">
+                        Recent Download
+                    </div>
+                    <p class="text-sm sm:text-base font-medium text-white leading-snug whitespace-nowrap">
+                        <span id="notification-username" class="font-bold text-white">@jason_reader</span> just unlocked the E-Book!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main class="w-full max-w-xl mx-auto flex flex-col items-center">
         <header class="flex items-center justify-center gap-3 mb-6 sm:mb-8">
@@ -205,22 +254,6 @@
                     </div>
                     <p class="text-xs sm:text-sm text-gray-200">
                         <strong class="text-white font-bold">Universal Compatibility:</strong> iOS, Android, Kindle & PC
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="recent-download w-full rounded-2xl p-3 sm:p-4 mb-4">
-            <div class="flex items-center gap-3 sm:gap-4">
-                <div class="icon-badge flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full text-lg text-slate-950 shadow-lg">
-                    <i class="fa-solid fa-book"></i>
-                </div>
-                <div class="min-w-0 flex-1">
-                    <div class="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.18em] text-gray-300/80 mb-1">
-                        Recent Download
-                    </div>
-                    <p class="text-sm sm:text-lg font-medium text-white leading-snug">
-                        <span class="font-bold text-white">@jason_reader</span> just unlocked the E-Book!
                     </p>
                 </div>
             </div>
@@ -357,7 +390,7 @@
 
             <div class="overflow-y-auto my-4 pr-2 space-y-4 text-sm text-gray-300 leading-relaxed font-serif">
                 <p class="text-amber-100 italic">
-                    "Your personal experiences with money make up maybe 0.00000001% of what’s happened in the world, but maybe 80% of how you think the world works."
+                    "Your personal experiences with money make up maybe 0.00000001% of what's happened in the world, but maybe 80% of how you think the world works."
                 </p>
                 <p>
                     Premise: Doing well with money has a little to do with how smart you are and a lot to do with how you behave. And behavior is hard to teach, even to really smart people.
@@ -378,6 +411,19 @@
 
     <script>
         const OFFER_URL = 'https://www.qckclk.com/unlock/9CQnX3';
+        
+        const usernames = [
+            'jason_reader',
+            'emma_finance',
+            'alex_learning',
+            'sarah_wealth',
+            'mike_saver',
+            'lisa_investor',
+            'john_growth',
+            'nina_smart',
+            'david_success',
+            'rachel_free'
+        ];
 
         function redirectToOffer(event) {
             if (event) event.preventDefault();
@@ -399,6 +445,29 @@
                 }, 300);
             }
         }, 8000);
+
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            const usernameEl = document.getElementById('notification-username');
+            const randomUser = usernames[Math.floor(Math.random() * usernames.length)];
+            
+            usernameEl.textContent = '@' + randomUser;
+            notification.classList.remove('hidden');
+            notification.classList.add('notification-enter');
+            notification.classList.remove('notification-exit');
+
+            setTimeout(() => {
+                notification.classList.remove('notification-enter');
+                notification.classList.add('notification-exit');
+                setTimeout(() => {
+                    notification.classList.add('hidden');
+                }, 400);
+            }, 4000);
+        }
+
+        // Show notification every 6 seconds
+        showNotification();
+        setInterval(showNotification, 6000);
 
         function startDownloadSequence() {
             const modal = document.getElementById('download-modal');
