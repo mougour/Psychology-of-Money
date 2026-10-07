@@ -95,6 +95,18 @@
         .book-spine {
             background: linear-gradient(90deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 80%);
         }
+
+        .recent-download {
+            background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.025));
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+            backdrop-filter: blur(10px);
+        }
+
+        .recent-download .icon-badge {
+            background: linear-gradient(180deg, #20d989, #12bf7a);
+            box-shadow: 0 0 20px rgba(32, 217, 137, 0.3);
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between items-center px-4 py-6 md:py-10">
@@ -143,7 +155,7 @@
 
                             <div class="my-3 flex justify-center">
                                 <svg class="w-20 h-20 sm:w-24 sm:h-24 text-slate-800 opacity-90" viewBox="0 0 100 100" fill="currentColor">
-                                    <path d="M50 10 C30 10 15 25 15 45 C15 55 20 65 28 72 L28 85 L72 85 L72 72 C80 65 85 55 85 45 C85 25 70 10 50 10 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M50 10 C30 10 15 25 15 45 C15 55 20 65 28 72 L28 85 L72 85 L72 72 C80 65 85 55 85 45 C85 25 70 10 50 10 Z" fill="none" stroke="currentColor" stroke-width="3"/>
                                     <path d="M35 30 C40 25 50 25 50 35 C50 45 35 45 35 55 C35 60 45 60 50 60" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
                                     <path d="M65 30 C60 25 50 25 50 35 C50 45 65 45 65 55 C65 60 55 60 50 60" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
                                     <line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" stroke-width="2.5" stroke-dasharray="3,3"/>
@@ -193,6 +205,22 @@
                     </div>
                     <p class="text-xs sm:text-sm text-gray-200">
                         <strong class="text-white font-bold">Universal Compatibility:</strong> iOS, Android, Kindle & PC
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="recent-download w-full rounded-2xl p-3 sm:p-4 mb-4">
+            <div class="flex items-center gap-3 sm:gap-4">
+                <div class="icon-badge flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full text-lg text-slate-950 shadow-lg">
+                    <i class="fa-solid fa-book"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                    <div class="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.18em] text-gray-300/80 mb-1">
+                        Recent Download
+                    </div>
+                    <p class="text-sm sm:text-lg font-medium text-white leading-snug">
+                        <span class="font-bold text-white">@jason_reader</span> just unlocked the E-Book!
                     </p>
                 </div>
             </div>
@@ -255,7 +283,7 @@
         </div>
 
         <div class="w-full flex flex-col items-center">
-            <button onclick="redirectToOffer(event)" class="w-full btn-gradient text-slate-950 font-black text-base sm:text-lg py-4 px-6 rounded-xl flex items-center justify-center gap-3 shadow-glow-btn hover:shadow-glow-orange">
+            <button onclick="redirectToOffer(event)" class="w-full btn-gradient text-slate-950 font-black text-base sm:text-lg py-4 px-6 rounded-xl flex items-center justify-center gap-3 shadow-glow-btn">
                 <i class="fa-solid fa-download text-lg sm:text-xl"></i>
                 <span>COMPLETE 1 OFFER TO DOWNLOAD</span>
             </button>
@@ -335,7 +363,7 @@
                     Premise: Doing well with money has a little to do with how smart you are and a lot to do with how you behave. And behavior is hard to teach, even to really smart people.
                 </p>
                 <p>
-                    A genius who loses control of their emotions can be a financial disaster. The opposite is also true. Ordinary folks with no financial education can be wealthy if they have a handful of behaviors that keep them in the game for long enough.
+                    A genius who loses control of their emotions can be a financial disaster. The opposite is also true. Ordinary folks with no financial education can be wealthy if they have a handful of behavioral skills that are usually not taught in school.
                 </p>
             </div>
 
