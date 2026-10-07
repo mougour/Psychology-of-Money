@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -50,19 +50,16 @@
             overflow-x: hidden;
         }
 
-        /* Radial Glow Effect behind Book */
         .ambient-glow {
             background: radial-gradient(circle at 50% 40%, rgba(180, 80, 10, 0.35) 0%, rgba(90, 35, 5, 0.18) 45%, rgba(10, 11, 14, 0) 75%);
         }
 
-        /* Gradient Text */
         .gradient-orange-text {
             background: linear-gradient(135deg, #FF9900 0%, #FF5500 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* CTA Button Gradient & Hover */
         .btn-gradient {
             background: linear-gradient(180deg, #FF9900 0%, #FF6600 100%);
             transition: all 0.25s ease;
@@ -76,7 +73,6 @@
             transform: translateY(1px);
         }
 
-        /* Pulsing Dot Effect */
         @keyframes pulse-green {
             0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(0, 230, 118, 0); }
@@ -86,7 +82,6 @@
             animation: pulse-green 2s infinite;
         }
 
-        /* Shimmer animation for download bar */
         @keyframes shimmer {
             0% { background-position: -200% 0; }
             100% { background-position: 200% 0; }
@@ -97,7 +92,6 @@
             animation: shimmer 2.5s infinite linear;
         }
 
-        /* Book Spine Effect */
         .book-spine {
             background: linear-gradient(90deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 80%);
         }
@@ -106,8 +100,6 @@
 <body class="min-h-screen flex flex-col justify-between items-center px-4 py-6 md:py-10">
 
     <main class="w-full max-w-xl mx-auto flex flex-col items-center">
-        
-        <!-- HEADER / BRANDING -->
         <header class="flex items-center justify-center gap-3 mb-6 sm:mb-8">
             <div class="flex items-baseline text-white tracking-tight font-extrabold text-2xl sm:text-3xl">
                 <span>amazon</span>
@@ -119,7 +111,6 @@
             </span>
         </header>
 
-        <!-- HEADLINE SECTION -->
         <section class="text-center mb-8">
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white leading-[1.1] mb-4">
                 DOWNLOAD <br/>
@@ -131,20 +122,13 @@
             </p>
         </section>
 
-        <!-- MAIN BOOK CONTAINER CARD -->
         <div class="w-full rounded-2xl bg-brand-card/90 border border-brand-border/60 p-6 sm:p-8 mb-5 relative overflow-hidden ambient-glow shadow-glow-orange transition-all">
-            
-            <!-- 3D BOOK COVER MOCKUP -->
             <div class="flex justify-center mb-8 pt-2">
                 <div class="relative group cursor-pointer" onclick="openPreviewModal()">
-                    <!-- Book Shadow Behind -->
                     <div class="relative w-[210px] sm:w-[240px] bg-amber-50 rounded-r-md border-r-2 border-y border-amber-200/40 shadow-book-3d transform hover:scale-[1.02] hover:-rotate-1 transition-all duration-300">
-                        
-                        <!-- Left Spine Shadow Simulation -->
                         <div class="absolute top-0 bottom-0 left-0 w-3 book-spine z-10 opacity-70"></div>
                         <div class="absolute top-0 bottom-0 left-3 w-[1px] bg-black/15 z-10"></div>
 
-                        <!-- Book Content Cover (HTML Recreation matching book cover) -->
                         <div class="p-6 text-center text-slate-900 flex flex-col justify-between min-h-[310px] sm:min-h-[350px] bg-amber-50/95 relative select-none">
                             <div>
                                 <p class="font-serif italic text-lg sm:text-xl text-slate-800 -mb-1">The</p>
@@ -157,7 +141,6 @@
                                 </h2>
                             </div>
 
-                            <!-- Brain / Coin Graphic SVG -->
                             <div class="my-3 flex justify-center">
                                 <svg class="w-20 h-20 sm:w-24 sm:h-24 text-slate-800 opacity-90" viewBox="0 0 100 100" fill="currentColor">
                                     <path d="M50 10 C30 10 15 25 15 45 C15 55 20 65 28 72 L28 85 L72 85 L72 72 C80 65 85 55 85 45 C85 25 70 10 50 10 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -181,16 +164,13 @@
                         </div>
                     </div>
 
-                    <!-- Look Inside Badge Overlay -->
                     <div class="absolute top-2 right-2 bg-amber-500/90 text-slate-950 font-bold text-[10px] px-2 py-0.5 rounded shadow flex items-center gap-1 backdrop-blur-sm group-hover:scale-105 transition-transform">
                         <i class="fa-solid fa-book-open"></i> Preview
                     </div>
                 </div>
             </div>
 
-            <!-- FEATURE BULLET POINTS OVERLAY CARD -->
             <div class="bg-brand-cardLight/80 border border-brand-border/80 rounded-xl p-4 sm:p-5 space-y-3.5 backdrop-blur-sm">
-                <!-- Bullet 1 -->
                 <div class="flex items-center gap-3.5">
                     <div class="w-6 h-6 rounded-full bg-brand-orange flex items-center justify-center shrink-0 shadow-sm text-slate-950 font-black text-xs">
                         <i class="fa-solid fa-check"></i>
@@ -199,7 +179,6 @@
                         <strong class="text-white font-bold">Full Uncut Edition:</strong> Complete 320 pages
                     </p>
                 </div>
-                <!-- Bullet 2 -->
                 <div class="flex items-center gap-3.5">
                     <div class="w-6 h-6 rounded-full bg-brand-orange flex items-center justify-center shrink-0 shadow-sm text-slate-950 font-black text-xs">
                         <i class="fa-solid fa-check"></i>
@@ -208,7 +187,6 @@
                         <strong class="text-white font-bold">Step-by-Step Framework:</strong> Proven habit systems
                     </p>
                 </div>
-                <!-- Bullet 3 -->
                 <div class="flex items-center gap-3.5">
                     <div class="w-6 h-6 rounded-full bg-brand-orange flex items-center justify-center shrink-0 shadow-sm text-slate-950 font-black text-xs">
                         <i class="fa-solid fa-check"></i>
@@ -220,7 +198,6 @@
             </div>
         </div>
 
-        <!-- FILE STATUS & PRICE BAR -->
         <div class="w-full bg-brand-card rounded-xl border border-brand-border/70 p-3.5 sm:p-4 mb-3 flex items-center justify-between text-xs sm:text-sm">
             <div class="flex flex-col">
                 <span class="text-[10px] sm:text-xs font-bold tracking-wider text-gray-400 uppercase mb-0.5">FILE STATUS</span>
@@ -229,7 +206,6 @@
                     <span>Instant PDF Access</span>
                 </div>
             </div>
-            
             <div class="flex flex-col items-end">
                 <span class="text-[10px] sm:text-xs font-bold tracking-wider text-gray-400 uppercase mb-0.5">RETAIL PRICE</span>
                 <div class="flex items-center gap-2">
@@ -239,7 +215,6 @@
             </div>
         </div>
 
-        <!-- SCARCITY / PROGRESS BAR -->
         <div class="w-full bg-brand-card rounded-xl border border-brand-border/70 p-3.5 sm:p-4 mb-6">
             <div class="flex justify-between items-center text-[11px] sm:text-xs font-bold tracking-wide mb-2.5">
                 <span class="text-amber-400 uppercase">
@@ -247,14 +222,11 @@
                 </span>
                 <span class="text-gray-400">82% CLAIMED</span>
             </div>
-            
-            <!-- Progress Track -->
             <div class="w-full h-3 bg-gray-800/90 rounded-full overflow-hidden p-0.5 border border-gray-700/50">
                 <div id="progress-fill" class="h-full rounded-full shimmer-bar transition-all duration-1000" style="width: 82%;"></div>
             </div>
         </div>
 
-        <!-- 3-STEP INSTRUCTION SECTION -->
         <div class="w-full my-6 px-2 space-y-4 text-left">
             <div class="flex items-center gap-3.5">
                 <div class="w-7 h-7 rounded-full bg-amber-600/30 border border-amber-500/60 text-amber-500 font-bold text-xs flex items-center justify-center shrink-0 shadow-sm">
@@ -282,20 +254,17 @@
             </div>
         </div>
 
-        <!-- PRIMARY CTA BUTTON -->
         <div class="w-full flex flex-col items-center">
-            <button onclick="openOfferLink()" class="w-full btn-gradient text-slate-950 font-black text-base sm:text-lg py-4 px-6 rounded-xl flex items-center justify-center gap-3 shadow-glow-btn hover:shadow-glow-orange">
+            <button onclick="redirectToOffer(event)" class="w-full btn-gradient text-slate-950 font-black text-base sm:text-lg py-4 px-6 rounded-xl flex items-center justify-center gap-3 shadow-glow-btn hover:shadow-glow-orange">
                 <i class="fa-solid fa-download text-lg sm:text-xl"></i>
                 <span>COMPLETE 1 OFFER TO DOWNLOAD</span>
             </button>
 
-            <!-- SUBTEXT DISCLAIMER -->
             <p class="text-[10px] sm:text-xs text-gray-500 text-center mt-3.5 max-w-md">
                 *Verification is required to prevent automated bots & ensure free access for everyone.
             </p>
         </div>
 
-        <!-- REVIEWS / TRUST FOOTER SUB-SECTION -->
         <div class="mt-12 w-full pt-6 border-t border-gray-800/60 text-center">
             <div class="flex justify-center items-center gap-1 text-amber-400 text-sm mb-2">
                 <i class="fa-solid fa-star"></i>
@@ -309,10 +278,8 @@
                 Join thousands of readers mastering wealth, decision-making, and financial freedom today.
             </p>
         </div>
-
     </main>
 
-    <!-- DOWNLOAD SIMULATION MODAL -->
     <div id="download-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-brand-card border border-brand-border/90 rounded-2xl p-6 sm:p-8 max-w-md w-full text-center relative shadow-2xl">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg">
@@ -323,7 +290,6 @@
                 <div class="w-16 h-16 border-4 border-amber-500/20 border-t-amber-500 rounded-full animate-spin mx-auto mb-4"></div>
                 <h3 class="text-xl font-bold text-white mb-2">Generating Download Link...</h3>
                 <p class="text-sm text-gray-400 mb-4">Allocating 1 of 27 remaining digital copies to your session.</p>
-                
                 <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden mb-2">
                     <div id="modal-progress" class="bg-amber-500 h-full w-0 transition-all duration-300"></div>
                 </div>
@@ -339,10 +305,9 @@
                     "The Psychology of Money" (Full Uncut 320 Page Digital Edition) has been generated successfully.
                 </p>
 
-                <a href="#" onclick="event.preventDefault(); openOfferLink(); closeModal();" class="btn-gradient w-full py-3.5 px-6 rounded-xl font-bold text-slate-950 inline-flex items-center justify-center gap-2 text-base shadow-glow-btn">
+                <a href="#" onclick="redirectToOffer(event)" class="btn-gradient w-full py-3.5 px-6 rounded-xl font-bold text-slate-950 inline-flex items-center justify-center gap-2 text-base shadow-glow-btn">
                     <i class="fa-solid fa-file-arrow-down"></i> Save PDF File (14.2 MB)
                 </a>
-                
                 <p class="text-[11px] text-gray-500 mt-4">
                     Compatible with Apple Books, Kindle Reader, Adobe Acrobat & Mobile PDF viewers.
                 </p>
@@ -350,7 +315,6 @@
         </div>
     </div>
 
-    <!-- PREVIEW BOOK EXCERPT MODAL -->
     <div id="preview-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-gray-700 rounded-2xl p-6 max-w-lg w-full text-left relative max-h-[85vh] flex flex-col shadow-2xl">
             <div class="flex justify-between items-center pb-4 border-b border-gray-800">
@@ -377,7 +341,7 @@
 
             <div class="pt-4 border-t border-gray-800 flex justify-between items-center">
                 <span class="text-xs text-gray-400">Showing page 1 of 320</span>
-                <button onclick="openOfferLink(); closePreviewModal();" class="btn-gradient text-slate-950 font-bold text-xs py-2 px-4 rounded-lg">
+                <button onclick="redirectToOffer(event)" class="btn-gradient text-slate-950 font-bold text-xs py-2 px-4 rounded-lg">
                     Download Full Book PDF
                 </button>
             </div>
@@ -387,23 +351,20 @@
     <script>
         const OFFER_URL = 'https://www.qckclk.com/unlock/9CQnX3';
 
-        function openOfferLink() {
+        function redirectToOffer(event) {
+            if (event) event.preventDefault();
             closeModal();
             closePreviewModal();
             window.open(OFFER_URL, '_blank', 'noopener,noreferrer');
         }
 
-        // Interactive Live Counter for Scarcity simulation
         let currentCopies = 18;
         const copiesEl = document.getElementById('copies-count');
-        
-        // Randomly decrease stock slightly over time to simulate active claims
+
         setInterval(() => {
             if (currentCopies > 3 && Math.random() < 0.35) {
                 currentCopies--;
                 copiesEl.innerText = currentCopies;
-                
-                // Slight flash animation
                 copiesEl.classList.add('text-amber-300', 'scale-110');
                 setTimeout(() => {
                     copiesEl.classList.remove('text-amber-300', 'scale-110');
@@ -411,7 +372,6 @@
             }
         }, 8000);
 
-        // Download Simulation Trigger
         function startDownloadSequence() {
             const modal = document.getElementById('download-modal');
             const stepLoading = document.getElementById('modal-step-loading');
@@ -454,8 +414,6 @@
 
         function triggerActualDownload(e) {
             e.preventDefault();
-            
-            // Create sample text blob representing the PDF download
             const sampleContent = `The Psychology of Money - Timeless Lessons on Wealth, Greed, and Happiness by Morgan Housel.\n\nThank you for downloading this digital edition!`;
             const blob = new Blob([sampleContent], { type: 'text/plain' });
             const url = window.URL.createObjectURL(blob);
@@ -467,7 +425,6 @@
             a.click();
             window.URL.revokeObjectURL(url);
 
-            // Notification message
             const btn = e.currentTarget;
             btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Downloaded!';
             btn.classList.remove('btn-gradient');
