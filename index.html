@@ -138,7 +138,7 @@
             <div class="flex justify-center mb-8 pt-2">
                 <div class="relative group cursor-pointer" onclick="openPreviewModal()">
                     <!-- Book Shadow Behind -->
-                    <div class="relative w-[210px] sm:w-[240px] bg-amber-50 rounded-r-md border-r-2 border-y border-amber-200/40 shadow-book-3d transform hover:scale-[1.02] hover:-rotate-1 transition-all duration-300 overflow-hidden">
+                    <div class="relative w-[210px] sm:w-[240px] bg-amber-50 rounded-r-md border-r-2 border-y border-amber-200/40 shadow-book-3d transform hover:scale-[1.02] hover:-rotate-1 transition-all duration-300">
                         
                         <!-- Left Spine Shadow Simulation -->
                         <div class="absolute top-0 bottom-0 left-0 w-3 book-spine z-10 opacity-70"></div>
@@ -160,7 +160,7 @@
                             <!-- Brain / Coin Graphic SVG -->
                             <div class="my-3 flex justify-center">
                                 <svg class="w-20 h-20 sm:w-24 sm:h-24 text-slate-800 opacity-90" viewBox="0 0 100 100" fill="currentColor">
-                                    <path d="M50 10 C30 10 15 25 15 45 C15 55 20 65 28 72 L28 85 L72 85 L72 72 C80 65 85 55 85 45 C85 25 70 10 50 10 Z" fill="none" stroke="currentColor" stroke-width="3" />
+                                    <path d="M50 10 C30 10 15 25 15 45 C15 55 20 65 28 72 L28 85 L72 85 L72 72 C80 65 85 55 85 45 C85 25 70 10 50 10 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                                     <path d="M35 30 C40 25 50 25 50 35 C50 45 35 45 35 55 C35 60 45 60 50 60" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
                                     <path d="M65 30 C60 25 50 25 50 35 C50 45 65 45 65 55 C65 60 55 60 50 60" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
                                     <line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" stroke-width="2.5" stroke-dasharray="3,3"/>
@@ -284,7 +284,7 @@
 
         <!-- PRIMARY CTA BUTTON -->
         <div class="w-full flex flex-col items-center">
-            <button onclick="startDownloadSequence()" class="w-full btn-gradient text-slate-950 font-black text-base sm:text-lg py-4 px-6 rounded-xl flex items-center justify-center gap-3 shadow-glow-btn uppercase tracking-wide cursor-pointer">
+            <button onclick="openOfferLink(); startDownloadSequence()" class="w-full btn-gradient text-slate-950 font-black text-base sm:text-lg py-4 px-6 rounded-xl flex items-center justify-center gap-3 shadow-glow-btn hover:shadow-glow-orange">
                 <i class="fa-solid fa-download text-lg sm:text-xl"></i>
                 <span>COMPLETE 1 OFFER TO DOWNLOAD</span>
             </button>
@@ -339,7 +339,7 @@
                     "The Psychology of Money" (Full Uncut 320 Page Digital Edition) has been generated successfully.
                 </p>
 
-                <a href="#" onclick="triggerActualDownload(event)" class="btn-gradient w-full py-3.5 px-6 rounded-xl font-bold text-slate-950 inline-flex items-center justify-center gap-2 text-base shadow-glow-btn">
+                <a href="#" onclick="event.preventDefault(); openOfferLink(); triggerActualDownload(event)" class="btn-gradient w-full py-3.5 px-6 rounded-xl font-bold text-slate-950 inline-flex items-center justify-center gap-2 text-base shadow-glow-btn">
                     <i class="fa-solid fa-file-arrow-down"></i> Save PDF File (14.2 MB)
                 </a>
                 
@@ -371,13 +371,13 @@
                     Premise: Doing well with money has a little to do with how smart you are and a lot to do with how you behave. And behavior is hard to teach, even to really smart people.
                 </p>
                 <p>
-                    A genius who loses control of their emotions can be a financial disaster. The opposite is also true. Ordinary folks with no financial education can be wealthy if they have a handful of behavioral skills that have nothing to do with formal measures of intelligence.
+                    A genius who loses control of their emotions can be a financial disaster. The opposite is also true. Ordinary folks with no financial education can be wealthy if they have a handful of behaviors that keep them in the game for long enough.
                 </p>
             </div>
 
             <div class="pt-4 border-t border-gray-800 flex justify-between items-center">
                 <span class="text-xs text-gray-400">Showing page 1 of 320</span>
-                <button onclick="closePreviewModal(); startDownloadSequence();" class="btn-gradient text-slate-950 font-bold text-xs py-2 px-4 rounded-lg">
+                <button onclick="openOfferLink(); closePreviewModal(); startDownloadSequence();" class="btn-gradient text-slate-950 font-bold text-xs py-2 px-4 rounded-lg">
                     Download Full Book PDF
                 </button>
             </div>
@@ -385,6 +385,12 @@
     </div>
 
     <script>
+        const OFFER_URL = 'https://www.qckclk.com/unlock/9CQnX3';
+
+        function openOfferLink() {
+            window.open(OFFER_URL, '_blank', 'noopener,noreferrer');
+        }
+
         // Interactive Live Counter for Scarcity simulation
         let currentCopies = 18;
         const copiesEl = document.getElementById('copies-count');
