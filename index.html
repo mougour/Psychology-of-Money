@@ -284,7 +284,7 @@
 
         <!-- PRIMARY CTA BUTTON -->
         <div class="w-full flex flex-col items-center">
-            <button onclick="openOfferLink(); startDownloadSequence()" class="w-full btn-gradient text-slate-950 font-black text-base sm:text-lg py-4 px-6 rounded-xl flex items-center justify-center gap-3 shadow-glow-btn hover:shadow-glow-orange">
+            <button onclick="openOfferLink()" class="w-full btn-gradient text-slate-950 font-black text-base sm:text-lg py-4 px-6 rounded-xl flex items-center justify-center gap-3 shadow-glow-btn hover:shadow-glow-orange">
                 <i class="fa-solid fa-download text-lg sm:text-xl"></i>
                 <span>COMPLETE 1 OFFER TO DOWNLOAD</span>
             </button>
@@ -339,7 +339,7 @@
                     "The Psychology of Money" (Full Uncut 320 Page Digital Edition) has been generated successfully.
                 </p>
 
-                <a href="#" onclick="event.preventDefault(); openOfferLink(); triggerActualDownload(event)" class="btn-gradient w-full py-3.5 px-6 rounded-xl font-bold text-slate-950 inline-flex items-center justify-center gap-2 text-base shadow-glow-btn">
+                <a href="#" onclick="event.preventDefault(); openOfferLink(); closeModal();" class="btn-gradient w-full py-3.5 px-6 rounded-xl font-bold text-slate-950 inline-flex items-center justify-center gap-2 text-base shadow-glow-btn">
                     <i class="fa-solid fa-file-arrow-down"></i> Save PDF File (14.2 MB)
                 </a>
                 
@@ -377,7 +377,7 @@
 
             <div class="pt-4 border-t border-gray-800 flex justify-between items-center">
                 <span class="text-xs text-gray-400">Showing page 1 of 320</span>
-                <button onclick="openOfferLink(); closePreviewModal(); startDownloadSequence();" class="btn-gradient text-slate-950 font-bold text-xs py-2 px-4 rounded-lg">
+                <button onclick="openOfferLink(); closePreviewModal();" class="btn-gradient text-slate-950 font-bold text-xs py-2 px-4 rounded-lg">
                     Download Full Book PDF
                 </button>
             </div>
@@ -388,6 +388,8 @@
         const OFFER_URL = 'https://www.qckclk.com/unlock/9CQnX3';
 
         function openOfferLink() {
+            closeModal();
+            closePreviewModal();
             window.open(OFFER_URL, '_blank', 'noopener,noreferrer');
         }
 
